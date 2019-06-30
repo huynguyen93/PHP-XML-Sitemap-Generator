@@ -107,6 +107,11 @@
 
 		array_push ($scanned, $url);
 		$html = str_get_html (GetUrl ($url));
+    
+		if (!$html) { // 404
+			return;
+		}
+
 		$a1   = $html->find('a');
 
 		foreach ($a1 as $val) {
